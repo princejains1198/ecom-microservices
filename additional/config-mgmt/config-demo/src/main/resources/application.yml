@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: configdemo
+  config:
+      import: optional:configserver:http://localhost:8888
+  profiles:
+    active: dev
+
+
+# Uncomment the following section to use environment variables or JVM/program arguments to override values
+build:
+  id: ${ID}
+  version: ${VERSION}
+  name: ${NAME}
+  type: ${TYPE}
+  description: ${DESCRIPTION}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
+
+
+
+
+
+#build:
+#    id: 999
+#    version: 9.9.9-default
+#    name: "Default-Build"
+#    type: "Default Build"
+#    description: "This is the default configuration for the Config Demo application."
+
+# BUILD_ID=999; BUILD_VERSION=9.9.9-default; BUILD_NAME="Default-Build"; BUILD_TYPE="Default Build"; BUILD_DESCRIPTION="This is the default configuration for the Config Demo application."; SPRING_PROFILES_ACTIVE=prod; (environment variables)
+# ID: 999; VERSION: 9.9.9-default; NAME: "Default-Build"; TYPE: "Default Build"; DESCRIPTION: "This is the default configuration for the Config Demo application." (environment variables)
+# -Dbuild.id=123452 -Dbuild.name=java-testing -Dbuild.type=anything (JVM arguments)
+# --build.id=123452 --build.name=java-testing --build.type=anything (program arguments)

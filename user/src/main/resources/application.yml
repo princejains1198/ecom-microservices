@@ -1,0 +1,67 @@
+spring:
+  application:
+    name: user-service
+  config:
+    import: optional:configserver:http://localhost:8888
+
+
+
+# Database configuration, uncomment the following lines:
+#  data:
+#    mongodb:
+##      uri: mongodb+srv://princejain7987_db_user:PnuHRv4SdLqUEXci@user-data.qudnqsi.mongodb.net/?appName=user-data
+#      uri: mongodb://localhost:27017/userdb
+#      database: userdb
+
+
+# For PostgreSQL Database configuration, uncomment the following lines:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/userdb
+#    username: root
+#    password: root
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# For H2 Database configuration, uncomment the following lines:
+#  h2:
+#    console:
+#      enabled: true
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: ''
+
+#server:
+#  port: 8082
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#  endpoint:
+#    health:
+#      show-details: always
+#    shutdown:
+#      access: unrestricted
+#  info:
+#    env:
+#      enabled: true
+#
+#
+#server:
+#  shutdown: graceful
+#
+#info:
+#  app:
+#    name: E-Commerce Application
+#    description: This is a sample e-commerce application built with Spring Boot.
+#    version: 1.0.0

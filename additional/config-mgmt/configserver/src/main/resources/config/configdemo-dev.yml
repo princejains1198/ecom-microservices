@@ -1,0 +1,19 @@
+build:
+  id: 2020202
+  version: 2.2.2-dev
+  name: "Native ConfigDemo-Development"
+  type: "Native Development Build"
+  description: "This is the development configuration for the Config Demo application."
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

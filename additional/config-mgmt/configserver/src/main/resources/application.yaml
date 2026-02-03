@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: configserver
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///D:\Ecommerce Application\additional\config-mgmt\configserver\src\main\resources\config
+  #          search-locations: classpath:/config
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+#  Uncomment below to use JDBC as the configuration source
+#  profiles:
+#    active: jdbc
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/configdb
+#    username: ${MYSQL_USER}
+#    password: ${MYSQL_PASSWORD}
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#  cloud:
+#    config:
+#      server:
+#        jdbc:
+#          sql: SELECT prop_key, prop_value FROM PROPERTIES WHERE application=? AND profile=? AND label=?
+#          default-label: main
+
+#  Uncomment below to use Git as the configuration source
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/princejains1198/app-configuration
+#          username: ${GIT_USERNAME}
+#          password: ${GIT_TOKEN}
+
+server:
+  port: 8888
+
+#encrypt:
+#  key: "0E5F7365637265745F6B65795F666F725F656E6372797074696F6E21"
+
+encrypt:
+  key-store:
+    location: config-server.jks
+    password: mypass
+    alias: config-server-key
+

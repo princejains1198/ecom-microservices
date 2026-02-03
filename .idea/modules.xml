@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Ecommerce Application.iml" filepath="$PROJECT_DIR$/.idea/Ecommerce Application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/additional/FirstSpring/FirstSpring.iml" filepath="$PROJECT_DIR$/additional/FirstSpring/FirstSpring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/additional/config-mgmt/config-demo/configdemo.iml" filepath="$PROJECT_DIR$/additional/config-mgmt/config-demo/configdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/additional/config-mgmt/configserver/configserver.iml" filepath="$PROJECT_DIR$/additional/config-mgmt/configserver/configserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/additional/interservice/consumer/consumer.iml" filepath="$PROJECT_DIR$/additional/interservice/consumer/consumer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/additional/interservice/eureka/eureka (1) (com.demo).iml" filepath="$PROJECT_DIR$/additional/interservice/eureka/eureka (1) (com.demo).iml" />
+      <module fileurl="file://$PROJECT_DIR$/additional/interservice/provider/provider.iml" filepath="$PROJECT_DIR$/additional/interservice/provider/provider.iml" />
+    </modules>
+  </component>
+</project>

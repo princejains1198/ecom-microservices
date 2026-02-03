@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: order-service
+  config:
+    import: optional:configserver:http://config-server:8888
+
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/orderdb
+#    username: root
+#    password: root
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# For H2 Database configuration, uncomment the following lines:
+#  h2:
+#    console:
+#      enabled: true
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: ''
+
+server:
+  port: 8083
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+#  endpoint:
+#    health:
+#      show-details: always
+#    shutdown:
+#      access: unrestricted
+#  info:
+#    env:
+#      enabled: true
+#
+#
+#server:
+#  shutdown: graceful
+#
+#info:
+#  app:
+#    name: E-Commerce Application
+#    description: This is a sample e-commerce application built with Spring Boot.
+#    version: 1.0.0
+
+
+

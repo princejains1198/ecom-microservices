@@ -1,0 +1,52 @@
+spring:
+  application:
+    name: product-service
+  config:
+    import: optional:configserver:http://localhost:8888
+
+# For Postgres Database configuration, uncomment the following lines:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/productdb
+#    username: root
+#    password: root
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+#    #    database-platform: org.hibernate.dialect.MySQLDialect
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+
+
+# For Postgres Neon Database configuration, uncomment the following lines:
+#    url: jdbc:postgresql://ep-super-leaf-ah09vkxe-pooler.c-3.us-east-1.aws.neon.tech/product?sslmode=require&channel_binding=require'
+#    username: neondb_owner
+#    password: npg_lHGyc3FTPs0b
+
+
+
+# For MySQL Database configuration, uncomment the following lines:
+#    url: jdbc:mysql://localhost:3307/productdb
+#    username: root
+#    password: admin
+
+# For H2 Database configuration, uncomment the following lines:
+#  h2:
+#    console:
+#      enabled: true
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: ''
+
+
+#server:
+#  port: 8081

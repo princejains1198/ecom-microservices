@@ -1,0 +1,94 @@
+#spring:
+#  cloud:
+#    gateway:
+#      server:
+#        webflux:
+#          routes:
+#            - id: product-service
+#              uri: lb://PRODUCT-SERVICE
+#              #              uri: http://localhost:8081
+#              predicates:
+##                - Path=/api/products/**
+#                - Path=/products/**
+#              filters:
+#                - "RewritePath=/products(?<segment>/?.*),/api/products${segment}"
+#            - id: user-service
+#              uri: lb://USER-SERVICE
+#              #              uri: http://localhost:8082
+#              predicates:
+##                - Path=/api/users/**
+#                - Path=/users/**
+#              filters:
+#                - "RewritePath=/users(?<segment>/?.*),/api/users${segment}"
+#            - id: order-service
+#              uri: lb://ORDER-SERVICE
+#              #              uri: http://localhost:8083
+#              predicates:
+##                - Path=/api/orders/**, /api/cart/**
+#                - Path=/orders/**, /cart/**
+#              filters:
+#                - "RewritePath=/(?<segment>.*),/api/${segment}"
+#            - id: eureka-server
+#              uri: http://localhost:8761
+#              predicates:
+#                - Path=/eureka/main
+#              filters:
+#                - SetPath=/
+#            - id: eureka-server-static
+#              uri: http://localhost:8761
+#              predicates:
+#                - Path=/eureka/**
+
+server:
+  port: 8080
+
+#logging:
+#  level:
+#    root: info
+#    org.springframework.cloud.gateway.route.RouteDefinitionLocator: INFO
+#    org.springframework.cloud.gateway: TRACE
+
+management:
+  endpoints:
+    web:
+      exposure:
+        default: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    circuitbreakers:
+      enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+
+# Circuit Breaker
+resilience4j:
+  circuitbreaker:
+    instances:
+      ecomBreaker:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        permittedNumberOfCallsInHalfOpenState: 3
+        waitDurationInOpenState: 10s
+        failureRateThreshold: 50
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        slidingWindowType: count_based
+
+# Security
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8443/realms/ecom-app
+
+# Eureka
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8761/eureka"
+      register-with-eureka: true
+      fetch-registry: true

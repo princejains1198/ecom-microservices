@@ -1,0 +1,6 @@
+build:
+  id: 1010101
+  version: 1.1.1-prod
+  name: "Native ConfigDemo-Production"
+  type: "Native Production Build"
+  description: "This is the production configuration for the Config Demo application."

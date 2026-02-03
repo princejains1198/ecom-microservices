@@ -1,0 +1,103 @@
+spring:
+  data:
+    mongodb:
+#      uri: mongodb+srv://princejain7987_db_user:PnuHRv4SdLqUEXci@user-data.qudnqsi.mongodb.net/?appName=user-data
+      uri: ${MONGO_URI}
+      database: ${DATABASE_NAME}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USERNAME:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+    virtual-host: ${RABBITMQ_VHOST:guest}
+    connection-timeout: 30000
+
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://eureka:8761/eureka/"
+      register-with-eureka: true
+      fetch-registry: true
+
+
+logging:
+#  level:
+#    root: INFO
+#    com.ecommerce.user: TRACE
+  file:
+    name: logs/${spring.application.name}.log
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 7
+
+# KEYCLOAK
+keycloak:
+  admin:
+    username: user
+    password: user
+    server-url: http://keycloak:8080
+    realm: ecom-app
+    client-id: admin-cli
+    client-uid: fab3ed1d-9c0a-489a-bffc-67256719248c
+
+
+
+# For PostgreSQL Database configuration, uncomment the following lines:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/userdb
+#    username: root
+#    password: root
+#  jpa:
+#    database: POSTGRESQL
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+# For H2 Database configuration, uncomment the following lines:
+#  h2:
+#    console:
+#      enabled: true
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: create
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password: ''
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_URL:http://zipkin:9411/api/v2/spans}
+#  endpoint:
+#    health:
+#      show-details: always
+#    shutdown:
+#      access: unrestricted
+#  info:
+#    env:
+#      enabled: true
+#
+#
+#server:
+#  shutdown: graceful
+#
+#info:
+#  app:
+#    name: E-Commerce Application
+#    description: This is a sample e-commerce application built with Spring Boot.
+#    version: 1.0.0

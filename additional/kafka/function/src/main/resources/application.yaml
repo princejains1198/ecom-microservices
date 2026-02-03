@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: function
+  cloud:
+    function: 
+      definition: upperCase
+    function.web.path: /upperCase
